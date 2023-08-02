@@ -4,8 +4,8 @@
             <p class="card-text">{{ object.title }}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="{% url 'catalog:category_products' object.pk %}" type="button"
-                       class="btn btn-sm btn-outline-secondary">К товарам</a>
+                    <a href="{% url 'catalog:product_desc' object.pk %}" type="button"
+                       class="btn btn-sm btn-outline-secondary">Описание товара</a>
                 </div>
             </div>
         </div>

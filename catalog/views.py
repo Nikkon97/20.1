@@ -5,7 +5,7 @@ from catalog.models import Category, Product
 
 def index(request):
     context = {
-        'object_list': Category.objects.all(),
+        'object_list': Product.objects.all(),
         'title': 'Каталог - Главная'
     }
     return render(request, 'catalog/index.html', context)
@@ -19,10 +19,11 @@ def categories(request):
     return render(request, 'catalog/categories.html', context)
 
 
-def category_products(request, pk):
-    category_item = Category.objects.get(pk=pk)
+def product_desc(request, pk):
+    product_item = Product.objects.get(pk=pk)
     context = {
         'object_list': Product.objects.filter(category_id=pk),
-        'title': f'Продукты категории - {category_item.title}'
+        'title': f'{product_item.title}',
+        'desc': f'{product_item.desc}'
     }
-    return render(request, 'catalog/products.html', context)
+    return render(request, 'catalog/product.html', context)
